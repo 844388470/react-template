@@ -1,19 +1,11 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
-import App from './App'
+import React from 'react'
+import ReactDOM from 'react-dom';
+import Routes from '@/config/router';
+require('./style/index.css');
 
-const renderDom = Component => {
-    render(
-        <Component />,
-        document.getElementById('app')
-    );
-}
+console.log(Routes)
 
-renderDom(App);
-
-if (module.hot) {
-    module.hot.accept('./App', () => {
-        const App = require('./App').default;
-        renderDom(App);
-    })
-} 
+ReactDOM.render(
+    <Routes />,
+    document.getElementById('app'),
+)
