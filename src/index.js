@@ -1,9 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
-import Routes from '@/config/router';
+import Routes from '@/router/router';
+import store from '@/redux/store';
 require('./style/index.css');
+import { addToCart }  from './redux/actions/a_x';
 
-console.log(Routes)
+let unsubscribe = store.subscribe(() =>
+  console.log(store.getState())
+);
+
+store.dispatch(addToCart('Coffee 500gm', 1, 250));
+store.dispatch(addToCart('Flour 1kg', 2, 110));
+store.dispatch(addToCart('Juice 2L', 1, 250));
+
+unsubscribe();
 
 ReactDOM.render(
     <Routes />,

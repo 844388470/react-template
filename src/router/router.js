@@ -1,24 +1,24 @@
 import React from 'react'
-import { Router, Route, IndexRoute, hashHistory, Redirect,IndexRedirect,browserHistory } from 'react-router'
+import { Router, Route, hashHistory,IndexRedirect } from 'react-router'
 import App from '../App'
 import * as Index from '../pages/index'
 import navkeep from '../pages/navkeep'
 
-// import * as menu from '@pages/menu' // 菜单
-function onEntry(e,replace,back){
-    console.log(e)
-    if(e.location.pathname.indexOf('system')!==-1){
-        
+
+function onEntry(e,replace,back){               //拦截
+    // console.log(e)
+    if(e.location.pathname.indexOf('system')===-1){
+        back()
     }else{
         replace({ pathname: '/login' })
         setTimeout(()=>{
-            back()
+            back()                              //跳转  否则 阻塞
         },2000)
     }
 }
 
 
-export default () => (
+export default () => (                          //路由
     <Router history={hashHistory}>
         <Route path="/" component={App} onEnter={onEntry}>
             <IndexRedirect to="home"/>
