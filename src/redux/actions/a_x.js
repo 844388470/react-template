@@ -6,3 +6,10 @@ export function addToCart(product, quantity, unitCost) {
     payload: { product, quantity, unitCost }
   }
 }
+
+export function changeColor(color) {
+  return {
+    type: 'CHANGE_COLOR',
+    payload: color
+  }
+}

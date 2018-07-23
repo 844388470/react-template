@@ -5,11 +5,11 @@ export default class app extends Component {
         return (
             <div>
                 {this.props.children}
-                <ul className={'nnnnn'}>
+                {/* <ul className={'nnnnn'}>
                     <li><Link to="/a" activeClassName="active">a</Link></li>
                     <li><Link to="/b" activeClassName="active">b</Link></li>
                     <li><Link to="/login" activeClassName="active">n</Link></li>
-                </ul>
+                </ul> */}
             </div>
         );
     }

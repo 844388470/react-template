@@ -1,4 +1,4 @@
-import { createStore,combineReducers } from "redux";
+
 
 const initialState = {
     cart: [
@@ -14,11 +14,10 @@ const initialState = {
       }
     ]
 }
-const ADD_TO_CART = 'ADD_TO_CART';
 
 export const cartReducer = function(state=initialState, action) {
     switch (action.type) {
-        case ADD_TO_CART: {
+        case 'ADD_TO_CART': {
           return {
               ...state,
               cart: [...state.cart, action.payload]
@@ -28,4 +27,15 @@ export const cartReducer = function(state=initialState, action) {
         default:
           return state;
       }
+}
+
+export const colorReducer = function(state='red', action) {
+  switch (action.type) {
+      case 'CHANGE_COLOR': {
+        return action.payload
+      }
+  
+      default:
+        return state;
+    }
 }
